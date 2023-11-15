@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:vimigoapp/recordpage.dart';
-import 'firebase_options.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class RecordList extends StatefulWidget {
@@ -98,6 +96,7 @@ class _RecordListState extends State<RecordList> {
 
           var docs = snapshot.data!.docs;
 
+          //function to get the hours ago format
           String getdate(var docs,int index){
             final DateTime currentTime = DateTime.now();
             String displayString = "";
