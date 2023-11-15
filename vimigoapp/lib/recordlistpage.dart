@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:vimigoapp/recordpage.dart';
 import 'firebase_options.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -142,7 +143,10 @@ class _RecordListState extends State<RecordList> {
                     title: Text(docs[index]['user']),
                     subtitle: Text(docs[index]['phone']),
                     trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
-                
+                    onTap: () {
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
+                      
+                    },
                   );
                 }
                 if (docs[index]['user'].toLowerCase().startsWith(SearchVal.toLowerCase())){
@@ -158,6 +162,10 @@ class _RecordListState extends State<RecordList> {
                       title: Text(docs[index]['user']),
                       subtitle: Text(docs[index]['phone']),
                       trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
+                      onTap: () {
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
+                      
+                      },
                   );
                 
                 }
@@ -174,7 +182,10 @@ class _RecordListState extends State<RecordList> {
                       title: Text(docs[index]['user']),
                       subtitle: Text(docs[index]['phone']),
                       trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
+                      onTap: () {
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
                       
+                      },
                   );
                 }
                 else{
