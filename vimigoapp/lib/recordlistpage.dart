@@ -143,14 +143,10 @@ class _RecordListState extends State<RecordList> {
                     title: Text(docs[index]['user']),
                     subtitle: Text(docs[index]['phone']),
                     trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
-<<<<<<< HEAD
                     onTap: () {
                               Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
                       
                     },
-=======
-                
->>>>>>> 241ba5ffc28252a8dcc103a8a400f694412d5345
                   );
                 }
                 if (docs[index]['user'].toLowerCase().startsWith(SearchVal.toLowerCase())){
@@ -166,13 +162,10 @@ class _RecordListState extends State<RecordList> {
                       title: Text(docs[index]['user']),
                       subtitle: Text(docs[index]['phone']),
                       trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
-<<<<<<< HEAD
                       onTap: () {
                               Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
                       
                       },
-=======
->>>>>>> 241ba5ffc28252a8dcc103a8a400f694412d5345
                   );
                 
                 }
@@ -189,14 +182,10 @@ class _RecordListState extends State<RecordList> {
                       title: Text(docs[index]['user']),
                       subtitle: Text(docs[index]['phone']),
                       trailing: istime ? ( Text( getdate(docs,index)) ) : Text(docs[index]['check-in']),
-<<<<<<< HEAD
                       onTap: () {
                               Navigator.push(context,MaterialPageRoute(builder: (context) => TheRecord(docs[index]['user'],docs[index]['phone'],getdate(docs,index))));
                       
                       },
-=======
-                      
->>>>>>> 241ba5ffc28252a8dcc103a8a400f694412d5345
                   );
                 }
                 else{
