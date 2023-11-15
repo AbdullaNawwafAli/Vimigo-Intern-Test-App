@@ -12,6 +12,7 @@ class RecordList extends StatefulWidget {
 
 class _RecordListState extends State<RecordList> {
   String SearchVal = "";
+  bool istime = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,20 @@ class _RecordListState extends State<RecordList> {
         ),
         elevation: 0,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            if (istime){
+            istime = false;
+          }
+          else{
+            istime = true;
+          }
+          });
+        },
+        child: Icon(Icons.hourglass_empty),
+      ),
+
     );
   }
 }
