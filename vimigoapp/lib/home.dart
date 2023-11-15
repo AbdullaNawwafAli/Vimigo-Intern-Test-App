@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String userVal = '';
   String phoneVal = '';
-  String timez = '';
+  String timeVal = '';
 
   CollectionReference db = FirebaseFirestore.instance.collection('Users');
 
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   TextButton.icon(
                       onPressed: () async{
-                        timez = formatTheTime();
+                        timeVal = formatTheTime();
                         if (userVal.length > 0 && phoneVal.length > 0){
                           Fluttertoast.showToast(
                             msg: 'User Added!',
@@ -110,6 +110,12 @@ class _HomeState extends State<Home> {
                             backgroundColor: Colors.grey,
                             textColor: Colors.white,
                             fontSize: 16.0);
+
+                            await db.add({
+                              'user' : userVal,
+                              'phone' : phoneVal,
+                              'check-in' : timeVal
+                            }).then((value) => print('User Added'));
 
                         }
                         else if(userVal.length > 0 && phoneVal.length == 0){
@@ -125,7 +131,7 @@ class _HomeState extends State<Home> {
                         }
                         else if(userVal.length == 0 && phoneVal.length > 0){
                           Fluttertoast.showToast(
-                            msg: 'Name is empty!',
+                            msg: 'UserName is empty!',
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,
                             timeInSecForIosWeb: 1,
