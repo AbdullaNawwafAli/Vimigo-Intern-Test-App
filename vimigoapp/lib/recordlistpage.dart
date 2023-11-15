@@ -195,9 +195,7 @@ class _RecordListState extends State<RecordList> {
               },
               separatorBuilder: (context, index) {
                 return Divider();
-              },
-                      
-                        
+              },   
             ),
           );
         },

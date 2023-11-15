@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                           Fluttertoast.showToast(
                             msg: 'User Added!',
                             toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
+                            gravity: ToastGravity.BOTTOM,
                             timeInSecForIosWeb: 1,
                             backgroundColor: Colors.grey,
                             textColor: Colors.white,
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
                           Fluttertoast.showToast(
                             msg: 'phone number is empty!',
                             toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
+                            gravity: ToastGravity.BOTTOM,
                             timeInSecForIosWeb: 1,
                             backgroundColor: Colors.grey,
                             textColor: Colors.white,
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                           Fluttertoast.showToast(
                             msg: 'Name is empty!',
                             toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
+                            gravity: ToastGravity.BOTTOM,
                             timeInSecForIosWeb: 1,
                             backgroundColor: Colors.grey,
                             textColor: Colors.white,
