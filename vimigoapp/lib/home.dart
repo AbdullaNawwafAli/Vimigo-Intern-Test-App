@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Home extends StatefulWidget {
 
@@ -17,6 +17,14 @@ class _HomeState extends State<Home> {
   String userVal = '';
   String phoneVal = '';
   String timez = '';
+
+  CollectionReference db = FirebaseFirestore.instance.collection('Users');
+
+  String formatTheTime(){
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd hh:mm:ss').format(now);
+    return formattedDate;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +95,66 @@ class _HomeState extends State<Home> {
               height: 60.0,
               color: Colors.amber[800],
               ),
-              
-            ]
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  TextButton.icon(
+                      onPressed: () async{
+                        timez = formatTheTime();
+                        if (userVal.length > 0 && phoneVal.length > 0){
+                          Fluttertoast.showToast(
+                            msg: 'User Added!',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+
+                        }
+                        else if(userVal.length > 0 && phoneVal.length == 0){
+                          Fluttertoast.showToast(
+                            msg: 'phone number is empty!',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+
+                        }
+                        else if(userVal.length == 0 && phoneVal.length > 0){
+                          Fluttertoast.showToast(
+                            msg: 'Name is empty!',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+
+                        }
+                        else{
+                          Fluttertoast.showToast(
+                          msg: 'Both fields is empty!',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.grey,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.lightBlue,
+                      ),
+                      icon: Icon(Icons.check_box), 
+                      label: Text ('Check-in')
+                  ),
+                ],
+                ),
+            ],
           ),
         ),
 
