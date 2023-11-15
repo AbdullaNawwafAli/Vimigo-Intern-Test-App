@@ -152,6 +152,17 @@ class _HomeState extends State<Home> {
                       icon: Icon(Icons.check_box), 
                       label: Text ('Check-in')
                   ),
+                  TextButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/recordlistpage');
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.lightBlue,
+                      ),
+                      icon: Icon(Icons.list), 
+                      label: Text ('Open Record List')
+                  ),
                 ],
                 ),
             ],
